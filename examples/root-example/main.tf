@@ -4,5 +4,10 @@ provider "azurerm" {
 
 module "service-principal" {
     source = "../../"
-    name   = "sp-blinq-${terraform.workspace}"
+    name   = "${var.name}-${terraform.workspace}"
+}
+
+variable "name" {
+  type = string
+  description = "The name of the service principal"
 }

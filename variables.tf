@@ -17,6 +17,6 @@ variable "scopes" {
 
 variable "key_vault_id" {
   type = string
-  description = "The ID of the Key Vault to store service principal credentials. Defaults to \"\""
+  description = "The ID of the Key Vault to store service principal credentials. Do not use a key vault that generates an access policy assigned to the this service principal. Causes a dependency loop. Defaults to \"\""
   default = ""
 }

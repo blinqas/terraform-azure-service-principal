@@ -28,3 +28,8 @@ output "subscription_id" {
   value = data.azurerm_subscription.current.id
   description = "The subscription ID we are currently working in. Outputted for convenience."
 }
+
+output "client_credentials" {
+  value = local.values_to_store
+  description = "Map of common attributes to authenticate with this service principal in a CI/CD pipeline or service connection setup."
+}

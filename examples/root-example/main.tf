@@ -4,7 +4,7 @@ provider "azurerm" {
 
 module "service-principal" {
     source = "../../"
-    name   = "${var.name}-${terraform.workspace}"
+    name   = "sp-tf-${var.name}"
 }
 
 variable "name" {

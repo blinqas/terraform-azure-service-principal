@@ -48,3 +48,22 @@ resource "azurerm_role_assignment" "main" {
   role_definition_id = format("%s%s", data.azurerm_subscription.current.id, data.azurerm_role_definition.main[0].id)
   principal_id       = azuread_service_principal.sp.id
 }
+
+# Temporary locals
+locals {
+  is_kv_enabled = var.key_vault_id != ""
+  values_to_store = {
+    client-id       = azuread_application.app.application_id
+    client-secret   = azuread_service_principal_password.pw.value
+    tenant-id       = data.azurerm_client_config.current.tenant_id
+    subscription-id = data.azurerm_subscription.current.id
+  }
+}
+
+# Store service principal credentials in the provided Key Vault
+resource "azurerm_key_vault_secret" "secret" {
+  count = local.is_kv_enabled ? length(local.values_to_store) : 0
+  key_vault_id = var.key_vault_id
+  name = format("%s%s", "kv-arm-", keys(local.values_to_store)[count.index])
+  value = format("%s%s", "kv-arm-", lookup(local.values_to_store, keys(local.values_to_store)[count.index]))
+}

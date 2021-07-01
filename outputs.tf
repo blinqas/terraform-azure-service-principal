@@ -23,3 +23,8 @@ output "tenant_id" {
     value = data.azurerm_client_config.current.tenant_id
     description = ""
 }
+
+output "subscription_id" {
+  value = data.azurerm_subscription.current.id
+  description = "The subscription ID we are currently working in. Outputted for convenience."
+}

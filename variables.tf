@@ -14,3 +14,9 @@ variable "scopes" {
   description = "A list of scopes the role assignment applies to. Defaults to []"
   default = []
 }
+
+variable "key_vault_id" {
+  type = string
+  description = "The ID of the Key Vault to store service principal credentials. Defaults to \"\""
+  default = ""
+}

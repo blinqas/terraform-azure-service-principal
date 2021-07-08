@@ -56,7 +56,7 @@ locals {
     client-id       = azuread_application.app.application_id
     client-secret   = azuread_service_principal_password.pw.value
     tenant-id       = data.azurerm_client_config.current.tenant_id
-    subscription-id = data.azurerm_subscription.current.id
+    subscription-id = data.azurerm_subscription.current.subscription_id
   }
 }
 

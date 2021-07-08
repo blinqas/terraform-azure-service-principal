@@ -25,7 +25,7 @@ output "tenant_id" {
 }
 
 output "subscription_id" {
-  value = data.azurerm_subscription.current.id
+  value = data.azurerm_subscription.current.subscription_id
   description = "The subscription ID we are currently working in. Outputted for convenience."
 }
 

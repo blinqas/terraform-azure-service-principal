@@ -21,7 +21,7 @@ data "azurerm_client_config" "current" {}
 resource "azuread_application" "app" {
   display_name = var.name
   identifier_uris = [
-    format("http://%s", var.name)
+    format("http://%s%s", var.name, var.identifier_uri_verified_domain)
   ]
 }
 

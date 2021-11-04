@@ -20,3 +20,8 @@ variable "key_vault_id" {
   description = "The ID of the Key Vault to store service principal credentials. Do not use a key vault that generates an access policy assigned to the this service principal. Causes a dependency loop. Defaults to \"\""
   default = ""
 }
+
+variable "identifier_uri_verified_domain" {
+  type = string
+  description "Change since October 2021 requires a verified domain of the organization or its subdomain. Example: wwan.no"
+}

@@ -3,6 +3,11 @@ variable "name" {
   description = "The name of the service principal"
 }
 
+variable "app_name" {
+  type = string
+  description = "The name of the application (normally the project name)"
+}
+
 variable "role" {
   type = string
   description = "The name of a role for the service principal. Does nothing if var.scopes isn't set."

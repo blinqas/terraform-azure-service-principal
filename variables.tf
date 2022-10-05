@@ -10,7 +10,7 @@ variable "app_name" {
 
 variable "identifier_uri_verified_domain" {
   type        = string
-  description = "Change since October 2021 requires a verified domain of the organization or its subdomain. Example: wwan.no"
+  description = "Change since October 2021 requires a verified domain of the organization or its subdomain."
 }
 
 variable "password_rotating_days" {
